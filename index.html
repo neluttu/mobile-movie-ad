@@ -33,13 +33,37 @@
             <span class="block p-3 rounded-full font-bold text-lg text-[#0c3243] bg-[#ebf8fd]">8.1</span>
         </div>
         <div class="relative z-10 flex items-center justify-center gap-3 mb-10">
-            <div class="absolute z-20 p-5 rounded-full cursor-pointer bg-white/50 group">
+            <div class="absolute z-20 p-5 rounded-full cursor-pointer bg-white/50 group" id="play">
                 <svg xmlns="http://www.w3.org/2000/svg" class="" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#1b364f" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" stroke-width="0" fill="currentColor" class="group-hover:fill-[#2F80ED] transition-all duration-150 ease-linear" />
                 </svg>
             </div>
-            <img src="https://c4.wallpaperflare.com/wallpaper/773/178/467/wonder-woman-gal-gadot-women-movies-wallpaper-preview.jpg" class="w-[82%] shadow-[0px_11px_18px_13px_rgba(1,139,213,0.21)] z-10 rounded-md">
+            <video id="video" width="320" height="240" poster="https://c4.wallpaperflare.com/wallpaper/773/178/467/wonder-woman-gal-gadot-women-movies-wallpaper-preview.jpg" class="w-[82%] shadow-[0px_11px_18px_13px_rgba(1,139,213,0.21)] z-10 rounded-md">
+                <source src="https://neluttu.github.io/mobile-movie-ad/trailer.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+            </video> 
+            
+            <script>
+                const trailer = document.getElementById("video");
+                const play = document.getElementById("play");
+            
+                play.addEventListener("click", function() {
+                trailer.volume = 1;
+                trailer.play();
+                trailer.muted = false;
+                trailer.controls = true;
+                play.style.display = "none";
+                });
+            
+                trailer.addEventListener("click", function() {
+                if (!trailer.paused) {
+                    trailer.pause();
+                    play.style.display = "block";
+                }
+                });
+            </script>
             
             <img src="https://c4.wallpaperflare.com/wallpaper/840/876/23/wonder-woman-dc-comics-gal-gadot-sword-wallpaper-preview.jpg" class="w-[82%] absolute scale-75 -left-14 -z-10 opacity-50">
 
